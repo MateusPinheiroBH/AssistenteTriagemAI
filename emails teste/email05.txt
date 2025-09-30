@@ -1,0 +1,15 @@
+De: Maria Mendes <maria.mendes@empresaexemplo.com>
+Para: Mateus Pinheiro <mateus.pinheiro@seuemail.com>
+Assunto: ERRO CRÍTICO no Relatório Semanal de Vendas
+Data: 2025-09-30 11:30:00
+
+Mateus,
+
+Acabamos de notar que a fórmula no campo 'Total de Receita da Filial Sul' no relatório que subiu para o drive **está incorreta** (está duplicando os valores).
+
+É fundamental que você **corrija este erro** no arquivo "Relatorio_Vendas_Setembro.xlsx" imediatamente e faça um novo upload. O CFO precisa dos dados corretos para a reunião das 15h.
+
+Obrigada pela sua atenção.
+
+Maria Mendes
+Coordenadora Financeira

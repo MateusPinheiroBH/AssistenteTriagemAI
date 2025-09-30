@@ -1,0 +1,427 @@
+body {
+    /* Fundo neutro e claro */
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; 
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #ffffff; /* Fundo branco para alto contraste */
+    padding: 30px;
+    border-radius: 16px; 
+    /* Sombra mais pronunciada para efeito flutuante (alto contraste) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    color: #1a73e8; /* Azul forte e moderno (Cor Primária) */
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #495057; /* Cinza escuro para contraste de texto */
+    margin-bottom: 25px;
+}
+
+.input-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #212529; /* Quase preto para alto contraste */
+}
+
+#email-input, #response-result {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Borda mais visível */
+    border-radius: 8px;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito ao focar no input */
+#email-input:focus {
+    border-color: #1a73e8; /* Azul Primário */
+    outline: none;
+    /* Anel de foco mais visível e contrastante */
+    box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.4); 
+}
+
+/* Estilo de CONFLITO na Textarea */
+#email-input.conflict {
+    border: 2px solid #dc3545; 
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+/* --- CORREÇÃO: GARANTINDO QUE .hidden FUNCIONE */
+.hidden {
+    display: none !important; 
+}
+
+/* --- SPINNER DE CARREGAMENTO ANIMADO (ALTO CONTRASTE) --- */
+#loading {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.1em;
+    color: #1a73e8;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.spinner {
+    border: 4px solid rgba(26, 115, 232, 0.3);
+    border-top: 4px solid #1a73e8; /* Cor principal da animação */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- ESTILOS PARA O POOL DRAG-AND-DROP --- */
+.drop-zone {
+    /* Borda e cor de fundo mais fortes */
+    border: 2px dashed #1a73e8; 
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #e9f0fe; /* Fundo suave, mas ligado à cor primária */
+    transition: border-color 0.3s, background-color 0.3s;
+    position: relative;
+}
+
+.drop-zone.drag-over {
+    border-color: #28a745; 
+    background-color: #e8f5e9;
+}
+
+.drop-zone.conflict {
+    border-color: #dc3545; 
+    background-color: #ffe8e8;
+}
+
+.drop-text {
+    margin: 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.ou-separator {
+    margin: 0 10px;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+.upload-button-drop {
+    background-color: #1a73e8; /* Azul principal */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.upload-button-drop:hover {
+    background-color: #145cb3; 
+}
+
+.file-status-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.file-status-area.hidden {
+    display: none;
+}
+
+.clear-file-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.clear-file-button:hover {
+    background: #c82333;
+}
+
+/* --- ESTILOS DE BOTÕES E GERAL --- */
+
+#process-button, #copy-button {
+    background-color: #1a73e8; /* Azul principal */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#process-button:hover, #copy-button:hover {
+    background-color: #145cb3; 
+}
+
+#process-button:active, #copy-button:active {
+    transform: translateY(1px); /* Efeito de clique */
+}
+
+#process-button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* --- SEÇÃO DE RESULTADOS E DESTAQUE DE CATEGORIA --- */
+
+.results-section {
+    margin-top: 30px;
+    border-top: 1px solid #ced4da; /* Linha divisória mais visível */
+    padding-top: 20px;
+}
+
+.result-card {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave para card */
+}
+
+.result-card h3 {
+    color: #212529; 
+    margin-top: 0;
+    margin-bottom: 15px; 
+}
+
+.titulo-output-tag {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #1a73e8; /* Azul principal */
+}
+
+/* DESTAQUE PRINCIPAL: CATEGORY TAG (Alto Contraste) */
+.category-tag {
+    display: inline-block;
+    padding: 10px 20px; 
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.4em; 
+}
+
+.produtivo {
+    /* Laranja forte para atenção (Alto Contraste) */
+    background-color: #ff9800; 
+    color: #333; 
+}
+
+.improdutivo {
+    /* Verde escuro e vibrante (Alto Contraste) */
+    background-color: #28a745; 
+    color: white;
+}
+
+.error {
+    background-color: #dc3545; 
+    color: white;
+}
+
+/* --- ESTILOS DE HISTÓRICO (EFEITO GAVETA) --- */
+
+#show-history-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+#show-history-button:hover {
+    background-color: #5a6268;
+}
+
+/* ESTILOS DE GAVETA FLUIDA */
+.history-section {
+    margin-top: 20px;
+    padding: 0 15px; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f0f4fb; /* Fundo levemente mais escuro para seção colapsada */
+    
+    max-height: 0; 
+    overflow: hidden; 
+    opacity: 0; 
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+/* CLASSE DE ABERTURA - Ativada pelo JS */
+.history-section.open {
+    max-height: 800px; 
+    opacity: 1;
+    padding: 15px; 
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+.history-title {
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    max-width: 60%; 
+}
+
+.history-category {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    min-width: 80px;
+    text-align: center;
+    color: white; 
+}
+
+.history-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-time {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.details-button {
+    background-color: #1a73e8; /* Azul principal */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+}
+
+/* --- ESTILOS DE MODAL (POP-UP) --- */
+.modal {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Fundo mais escuro para mais contraste */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.email-detail-box {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 6px;
+}
+.email-detail-box h4 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+#modal-original-email, #modal-suggested-response {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: monospace;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 0.9em;
+}

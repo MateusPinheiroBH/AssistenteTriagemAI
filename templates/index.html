@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente de Triagem de Email</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📧 Assistente de Triagem Inteligente</h1>
+        <p class="subtitle">Automatize a classificação de emails e sugira respostas instantaneamente.</p>
+
+        <div class="input-section">
+            <label for="email-input">Cole o Conteúdo do Email:</label>
+            <textarea id="email-input" placeholder="Cole aqui o corpo do email (assunto, texto, etc.) que deseja analisar..." rows="8"></textarea>
+            
+            <div id="drop-zone" class="drop-zone">
+                <p class="drop-text">
+                    Arraste e solte arquivos **(.txt ou .pdf)** aqui,
+                    <span class="ou-separator">ou</span>
+                    <button onclick="document.getElementById('file-upload').click()" class="upload-button-drop">
+                        Escolher Arquivo
+                    </button>
+                </p>
+                
+                <input type="file" id="file-upload" accept=".txt,.pdf" style="display: none;">
+
+                <div id="file-status-area" class="file-status-area hidden">
+                    <span id="selected-file-name"></span>
+                    <button id="clear-file-button" onclick="clearFile(event)" class="clear-file-button hidden">&times;</button>
+                </div>
+            </div>
+
+            <button id="process-button" onclick="processarEmail()">Classificar e Sugerir Resposta</button>
+        </div>
+        
+        <div id="loading" class="hidden">
+            Processando com IA...
+            <div class="spinner"></div> 
+        </div>
+
+        <div id="results-section" class="results-section hidden">
+            <h2>Resultados da Análise:</h2>
+            
+            <div class="result-card">
+                <h3>Título Resumo: <span id="titulo-resumo-output" class="titulo-output-tag"></span></h3>
+                
+                <h3>Categoria Identificada</h3>
+                <p id="categoria-result" class="category-tag"></p>
+            </div>
+
+            <div class="result-card">
+                <h3>Resposta Automática Sugerida</h3>
+                <textarea id="response-result" readonly rows="5"></textarea>
+                <button id="copy-button" onclick="copiarResposta()">Copiar Resposta</button>
+            </div>
+        </div>
+        
+        <button id="show-history-button" onclick="toggleHistory()">Mostrar Histórico de Análises</button>
+
+        <div id="history-section" class="history-section hidden">
+            <h2>Histórico de Análises Recentes</h2>
+            <div id="history-list">
+                <p class="loading-history">Carregando histórico...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="details-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3>Detalhes da Análise</h3>
+            <p><strong>Assunto Resumido:</strong> <span id="modal-title-summary" class="titulo-output-tag"></span></p>
+
+            <p><strong>Tipo:</strong> <span id="modal-categoria"></span></p>
+            <div class="email-detail-box">
+                <h4>Conteúdo Original do Email:</h4>
+                <pre id="modal-original-email"></pre>
+            </div>
+            <div class="email-detail-box">
+                <h4>Resposta Sugerida:</h4>
+                <pre id="modal-suggested-response"></pre>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

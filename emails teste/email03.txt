@@ -1,0 +1,15 @@
+De: João Silva (Recursos Humanos) <joao.silva@empresaexemplo.com>
+Para: Mateus Pinheiro <mateus.pinheiro@seuemail.com>
+Assunto: Solicitação de Entrevista - Vaga Desenvolvedor Sênior
+Data: 2025-09-30 10:15:00
+
+Prezado Mateus Pinheiro,
+
+Gostaria de agendar uma entrevista para a vaga de Desenvolvedor Sênior com a candidata Clara Nunes. Ela tem disponibilidade para amanhã, dia 01/10, às **14h00** ou às **16h30**.
+
+Por favor, me informe qual horário funciona melhor para você, ou sugira uma alternativa o quanto antes para que eu possa confirmar com a candidata.
+
+Obrigado,
+
+João Silva
+RH

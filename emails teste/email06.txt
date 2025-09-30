@@ -1,0 +1,14 @@
+De: Transportadora Rápida <rastreio@transportadorarapida.com>
+Para: Mateus Pinheiro <mateus.pinheiro@seuemail.com>
+Assunto: Sua encomenda foi entregue!
+Data: 2025-09-30 14:00:00
+
+Prezado Cliente,
+
+A encomenda referente ao pedido #98765, contendo o "Produto X - Monitor Ultrawide", foi **entregue com sucesso** no seu endereço de cadastro hoje, às 13:45.
+
+Você pode conferir o comprovativo de entrega no link abaixo (não é obrigatório): https://rastreio.transportadorarapida.com/98765
+
+Agradecemos a preferência!
+
+Equipe Transportadora Rápida
